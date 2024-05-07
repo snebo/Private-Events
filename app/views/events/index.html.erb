@@ -3,5 +3,6 @@
   <%= link_to "Sign_in", new_user_session_path%><br>
   <%= link_to "sign up", new_user_registration_path%>
 <%else%>
-  <%= link_to "Sign out", destroy_session_path%>
+  <%= link_to "Sign out", destroy_user_session_path%>
+  <%= link_to "Show all posts", user_posts_path %>
 <%end%>

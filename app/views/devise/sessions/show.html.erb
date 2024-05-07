@@ -1,0 +1,6 @@
+<h3>Show the devise user posts</h3>
+<% @user_posts.each do |post|%>
+  <h4><%= post.title%></h4>
+  <p>Slated to take place on the <%=post.event_date%></p>
+  <br>
+<%end%>
