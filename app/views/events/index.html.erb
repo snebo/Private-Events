@@ -1,1 +1,7 @@
 <h1>Events view page</h1>
+<%if !user_signed_in?%>
+  <%= link_to "Sign_in", new_user_session_path%><br>
+  <%= link_to "sign up", new_user_registration_path%>
+<%else%>
+  <%= link_to "Sign out", destroy_session_path%>
+<%end%>
