@@ -1,7 +1,6 @@
 <h1 align="center">Project: Private Events</h1>
-<h3>Pratice with ActiveRecords's associations, one of the best features of rails. I will try and build a site with similar functionality to 'Eventbrite' which allows users to create events and manages user signups</h3>
+Pratice with ActiveRecords's associations, one of the best features of rails. I will try and build a site with similar functionality to 'Eventbrite' which allows users to create events and manages user signups
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=snebo" alt="snebo" /></a> </p>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
