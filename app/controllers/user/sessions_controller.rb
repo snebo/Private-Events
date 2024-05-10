@@ -11,6 +11,18 @@ class User::SessionsController < Devise::SessionsController
   def show
     @user = User.find(current_user.id)
     @user_posts = @user.events
+    @reg_events = Attendee.where(user_id: current_user.id) #reutrns list of registerd events
+    # sort thenm
+    @past_events = []
+    @upcoming_events=[]
+    @reg_events.each do |evnt|
+      t_evnt = Event.find(evnt.event_id)
+      if t_evnt.starting >= Date.today
+        @upcoming_events << t_evnt.title
+      else
+        @past_events << t_evnt.title
+      end
+    end
   end
   # POST /resource/sign_in
   # def create
