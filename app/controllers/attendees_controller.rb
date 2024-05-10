@@ -11,15 +11,11 @@ class AttendeesController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
     @attendee = Attendee.find_by_user_id(current_user.id)
     @attendee.destroy
     flash[:success] = "No longer following this event"
-    redirect_to @event
+    redirect_to @event, status: :see_other
   end
 
-  # private
-
-  # def attend_params
-  #   params.require(:attendees).permit(:user_id, :event_id)
-  # end
 end

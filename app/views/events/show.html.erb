@@ -2,12 +2,16 @@
 <br>
 <p><strong><i>Starts on the: <%=@event.starting%></i></strong></p>
 <p><strong>Description: </strong><%=@event.description%></p>
+<p><strong>Followers: <%= @event.attendees.count %></strong></p>
 
 <br>
 <% if @event.user_id != current_user.id%>
   <% if @event.attendees.find_by_user_id(current_user.id)%>
+    <!-- following the event-->
     <p>You are following this event!</p>
-    <%# link_to "Leave event", attendees_path(current_user.attendance_for_event(@event)), method: :delete, data:{confirm: "Are you sure"} %>
+    <%# button_to 'Unfollow Event!', @attendee, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }%>
+    <%= link_to "Unfollow Event", attendee_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <br>
   <%else%>
     <%= button_to "Attend event", attendees_path, method: :post, params: { user_id: current_user.id, event_id: @event.id } %>
   <%end%>
