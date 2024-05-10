@@ -4,5 +4,13 @@
 <p><strong>Description: </strong><%=@event.description%></p>
 
 <br>
-<br>
+<% if @event.user_id != current_user.id%>
+  <% if @event.attendees.find_by_user_id(current_user.id)%>
+    <p>You are following this event!</p>
+    <%# link_to "Leave event", attendees_path(current_user.attendance_for_event(@event)), method: :delete, data:{confirm: "Are you sure"} %>
+  <%else%>
+    <%= button_to "Attend event", attendees_path, method: :post, params: { user_id: current_user.id, event_id: @event.id } %>
+  <%end%>
+<%end%>
+
 <%= link_to "return Home", root_path%>
