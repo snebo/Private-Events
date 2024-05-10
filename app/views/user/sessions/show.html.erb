@@ -7,4 +7,19 @@
 <%end%>
 <%=link_to "Create an event", new_event_path%>
 <br>
+<br>
+<h3>Followed Events</h3>
+<h4>Upcoming:</h4>
+<ul>
+  <%@upcoming_events.each do |evt|%>
+    <li><%=evt%></li>
+  <%end%>
+</ul>
+<h4>Past Events:</h4>
+<ul>
+  <%@past_events.each do|evt|%>
+    <li><%=evt%></li>
+  <%end%>
+</ul>
+
 <%= link_to "Home", root_path%>
