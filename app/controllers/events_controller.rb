@@ -1,7 +1,15 @@
 class EventsController < ApplicationController
-
+  def past
+    @events = Event.past_events
+  end
+  def future
+    @events = Event.future_events
+  end
+  
   def index
     @events = Event.all.order(:starting)
+    @past_events = Event.past_events
+    @future_events = Event.future_events
   end
   def new
     # @user = User.find(current_user.id)

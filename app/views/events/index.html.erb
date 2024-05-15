@@ -9,8 +9,20 @@
 <%end%>
 
 <h3>Event posts</h3>
+<br>
+<h4>Upcoming Events</h4>
 <ul>
-  <%@events.each do |event|%>
+  <%@future_events.each do |event|%>
+    <li> <strong><%=link_to event.title, event%></strong></li>
+  <%end%>
+</ul>
+
+<br>
+<hr>
+<br>
+<h4>Past Events</h4>
+<ul>
+  <%@past_events.each do |event|%>
     <li> <strong><%=link_to event.title, event%></strong></li>
   <%end%>
 </ul>
