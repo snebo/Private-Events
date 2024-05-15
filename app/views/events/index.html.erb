@@ -1,16 +1,18 @@
-<h1>Events view page</h1>
-
-<%if !user_signed_in?%>
-  <%= link_to "Sign_in", new_user_session_path%><br>
-  <%= link_to "sign up", new_user_registration_path%>
-<%else%>
-  <%= link_to "Sign out", destroy_user_session_path%>
-  <%= link_to "Your posts", user_posts_path %>
-<%end%>
-
 <h3>Event posts</h3>
+<br>
+<h4>Upcoming Events</h4>
 <ul>
-  <%@events.each do |event|%>
+  <%@future_events.each do |event|%>
+    <li> <strong><%=link_to event.title, event%></strong></li>
+  <%end%>
+</ul>
+
+<br>
+<hr>
+<br>
+<h4>Past Events</h4>
+<ul>
+  <%@past_events.each do |event|%>
     <li> <strong><%=link_to event.title, event%></strong></li>
   <%end%>
 </ul>
