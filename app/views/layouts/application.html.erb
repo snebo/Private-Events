@@ -9,6 +9,18 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <div class="navBar">
+      <h2>Private Events</h2>
+      <ul>
+        <%if !user_signed_in?%>
+          <li><%= link_to "Sign_in", new_user_session_path%></li>
+          <li><%= link_to "sign up", new_user_registration_path%></li>
+        <%else%>
+          <li><%= link_to "Sign out", destroy_user_session_path%></li>
+          <li><%= link_to "Your posts", user_posts_path %></li>
+        <%end%>
+      </ul>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
